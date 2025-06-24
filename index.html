@@ -3,15 +3,19 @@
 <head>
   <title>Welcome</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-image: url("assets/bg/space.gif");
-      background-attachment: fixed;     /* Keeps it from moving while scrolling */
-      background-repeat: repeat;        /* Repeats the background if needed */
-      background-color: black;          /* Fallback color */
+      background-attachment: fixed;
+      background-repeat: repeat;
+      background-color: black;
       color: lime;
       font-family: 'Comic Sans MS', cursive;
       text-align: center;
-      padding-top: 100px;
+      padding: 50px;
     }
 
     h1 {
@@ -26,10 +30,63 @@
         opacity: 0;
       }
     }
+
+    .card-container {
+      margin: 100px auto;
+      max-width: 300px;
+    }
+
+    .card-title {
+      color: hotpink;
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .card {
+      background-color: hotpink;
+      border-radius: 20px;
+      padding: 20px;
+      color: white;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .satellite-button {
+      margin-top: 20px;
+      cursor: pointer;
+      width: 60px;
+      height: auto;
+    }
   </style>
 </head>
 <body>
+
   <h1>WELCOME</h1>
-   </body>
+
+  <!-- Satellite GIF button to scroll to card -->
+  <a href="#card-section">
+    <img src="assets/gifs/satellite.gif" alt="Go to content" class="satellite-button">
+  </a>
+
+  <!-- Hot pink card section -->
+  <div id="card-section" class="card-container">
+    <div class="card-title">Fajardo River Watershed</div>
+    <div class="card">
+      <img src="assets/images/fajardoriverwatershed.png" alt="Study area for NASA DEVELOP Fajardo River Wastershed project.">
+      <p>The Fajardo River watershed in northeastern Puerto Rico (69 km²) drains into sensitive coral reef, seagrass, and mangrove habitats. This study examines how land use changes from 2000 to 2025 have affected water quality, focusing on turbidity and chlorophyll-a in coastal and marine areas including Vieques and Culebra Islands.</p>
+    </div>
+  </div>
+
+</body>
 </html>
 
