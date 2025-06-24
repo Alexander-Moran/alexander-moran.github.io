@@ -33,7 +33,7 @@
 
     .card-container {
       margin: 300px auto;
-      max-width: 400px;
+      max-width: 1000px;
     }
 
     .card-title {
@@ -46,8 +46,9 @@
     .card {
       background-color: hotpink;
       border-radius: 20px;
-      padding: 20px;
+      padding: 30px;
       color: white;
+      box-sizing: border-box;
     }
 
     .card img {
@@ -58,7 +59,26 @@
 
     .card p {
       font-size: 16px;
-      margin: 0;
+      margin: 0 0 20px 0;
+    }
+
+    .iframe-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .iframe-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
     }
 
     .satellite-button {
@@ -66,6 +86,20 @@
       cursor: pointer;
       width: 60px;
       height: auto;
+    }
+
+    .contact-email {
+      margin-top: 100px;
+      font-size: 18px;
+      color: hotpink;
+      text-align: center;
+      user-select: text;
+    }
+
+    .contact-email a {
+      color: deeppink;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -82,18 +116,21 @@
   <div id="card-section" class="card-container">
     <div class="card-title">Fajardo River Watershed</div>
     <div class="card">
-      <img src="assets/images/fajardoriverwatershed.png" alt="Study area for NASA DEVELOP Fajardo River Wastershed project.">
+      <img src="assets/images/fajardoriverwatershed.png" alt="Study area for NASA DEVELOP Fajardo River Watershed project.">
       <p>The Fajardo River watershed in northeastern Puerto Rico (69 km²) drains into sensitive coral reef, seagrass, and mangrove habitats. This study examines how land use changes from 2000 to 2025 have affected water quality, focusing on turbidity and chlorophyll-a in coastal and marine areas including Vieques and Culebra Islands.</p>
-      <iframe src="https://docs.google.com/presentation/d/1gMdjLenH7f-FN9Neyo3LlRFtUbRbq29x/embed?start=false&loop=false&delayms=3000" 
-        frameborder="0" 
-        width="960" 
-        height="569" 
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true">
-</iframe>
-
+      <div class="iframe-wrapper">
+        <iframe src="https://docs.google.com/presentation/d/1gMdjLenH7f-FN9Neyo3LlRFtUbRbq29x/embed?start=false&loop=false&delayms=3000" 
+          allowfullscreen 
+          mozallowfullscreen 
+          webkitallowfullscreen>
+        </iframe>
+      </div>
     </div>
+  </div>
+
+  <!-- Contact Email -->
+  <div class="contact-email">
+    Contact: <a href="mailto:moran.contact@proton.me">moran.contact@proton.me</a>
   </div>
 
 </body>
