@@ -1,0 +1,43 @@
+body {
+  color: lime;
+  font-family: 'Comic Sans MS', cursive;
+  background-repeat: repeat;
+  background-color: black;
+}
+
+h1 {
+  color: hotpink;
+  text-shadow: 2px 2px blue;
+  font-size: 36px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border: 2px dashed magenta;
+}
+
+.main-content {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+a {
+  color: yellow;
+  text-decoration: underline;
+}
+
+blink {
+  animation: blinker 0.8s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
