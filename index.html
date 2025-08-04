@@ -8,6 +8,8 @@
     }
 
     body {
+      margin: 0;
+      padding: 0;
       background-image: url("assets/bg/space.gif");
       background-attachment: fixed;
       background-repeat: repeat;
@@ -15,7 +17,23 @@
       color: lime;
       font-family: 'Comic Sans MS', sans-serif;
       text-align: center;
-      padding: 50px;
+    }
+
+    .banner-image {
+      display: block;
+      width: 100vw;
+      height: 100px;          /* Adjust height as you want */
+      object-fit: cover;     /* Scale and crop nicely */
+      image-rendering: pixelated; /* Retro pixel look */
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      user-select: none;
+    }
+
+    /* Push all content below the banner */
+    body > :not(.banner-image) {
+      margin-top: 50px;
     }
 
     h1 {
@@ -94,83 +112,44 @@
     }
 
     .sat-wrapper {
-        text-align: center;
+      text-align: center;
     }
 
     .sat-label {
-        margin-top: 4px;
-        color: hotpink;
-        font-size: 14px;
+      margin-top: 4px;
+      color: hotpink;
+      font-size: 14px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      padding: 40px;
+      gap: 10px; /* smaller gap between satellites and About Me */
+      justify-content: flex-start;
+    }
+
+    .satellite-buttons {
+      width: 120px;       /* fixed narrow width */
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding-top: 50px;
     }
 
     .about-me {
-        position: relative;
-        flex: 1;
-        background-color: rgba(255, 105, 180, 0.2);
-        min-width: 400px;
-        padding: 20px 20px 220px 30px;  /* Extra bottom padding to make room for image */
-        border-radius: 0px; /* Pointed corners */
-        text-align: left;
-        margin-left: 0;
+      flex-grow: 1;       /* take remaining space */
+      min-width: 500px;   /* minimum width so it doesn’t shrink too small */
+      margin-left: 0;     /* no left margin pushing it right */
+      background-color: rgba(255, 105, 180, 0.2);
+      padding: 20px 20px 220px 30px;
+      border-radius: 0;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
-    .profile-pic {
-  float: right;
-  width: 360px;
-  height: 180px;
-  border-radius: 0px;
-  border: 2px solid hotpink;
-  margin-left: 20px;  /* space between image and text */
-  margin-bottom: 20px; /* some space below */
-  position: static;  /* remove absolute */
-}
-
-
-
-    .contact-email {
-      margin-top: 100px;
-      font-size: 18px;
-      color: hotpink;
-      text-align: center;
-      user-select: text;
-    }
-
-    .contact-email a {
-      color: deeppink;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-
-    /* --- Layout Section --- */
-    .container {
-  display: flex;
-  flex-direction: row;
-  padding: 40px;
-  gap: 10px; /* smaller gap between satellites and About Me */
-  justify-content: flex-start;
-}
-
-.satellite-buttons {
-  width: 120px;       /* fixed narrow width */
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  padding-top: 50px;
-}
-
-.about-me {
-  flex-grow: 1;       /* take remaining space */
-  min-width: 500px;   /* minimum width so it doesn’t shrink too small */
-  margin-left: 0;     /* no left margin pushing it right */
-  background-color: rgba(255, 105, 180, 0.2);
-  padding: 20px 20px 220px 30px;
-  border-radius: 0;
-  text-align: left;
-  position: relative;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
 
     .about-me h2 {
       color: hotpink;
@@ -185,6 +164,31 @@
       padding: 8px;
       border-bottom: 1px solid hotpink;
       color: lime;
+    }
+
+    .profile-pic {
+      float: right;
+      width: 360px;
+      height: 180px;
+      border-radius: 0px;
+      border: 2px solid hotpink;
+      margin-left: 20px;  /* space between image and text */
+      margin-bottom: 20px; /* some space below */
+      position: static;
+    }
+
+    .contact-email {
+      margin-top: 100px;
+      font-size: 18px;
+      color: hotpink;
+      text-align: center;
+      user-select: text;
+    }
+
+    .contact-email a {
+      color: deeppink;
+      text-decoration: underline;
+      font-weight: bold;
     }
 
     @media (max-width: 768px) {
@@ -204,10 +208,20 @@
         justify-content: center;
         margin-top: 20px;
       }
+
+      body {
+        padding: 50px 0 0 0; /* keep top padding for content below banner */
+      }
+
+      .banner-image {
+        height: 70px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <img src="assets/images/banner.png" alt="Banner" class="banner-image">
 
   <h1>WELCOME</h1>
 
@@ -218,15 +232,17 @@
       <a href="projects.html">
         <img src="assets/gifs/satellite.gif" alt="Go to RS Page" class="satellite-button">
       </a>
-        <p class="sat-label">Projects</p>
-      <a href="projects.html">
+      <p class="sat-label">Projects</p>
+
+      <a href="experience.html">
         <img src="assets/gifs/resume.gif" alt="Go to RS Page" class="satellite-button">
       </a>
-        <p class="sat-label">Resume</p>
+      <p class="sat-label">Resume</p>
+
       <a href="projects.html">
         <img src="assets/gifs/earth.gif" alt="Go to RS Page" class="satellite-button">
       </a>
-        <p class="sat-label">Mind Map</p>
+      <p class="sat-label">Mind Map</p>
     </div>
 
     <!-- About Me Section -->
