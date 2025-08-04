@@ -16,6 +16,8 @@
       font-family: 'Comic Sans MS', sans-serif;
       text-align: center;
       padding: 50px;
+      box-sizing: border-box;
+      user-select: none;
     }
 
     h1 {
@@ -101,6 +103,19 @@
       text-decoration: underline;
       font-weight: bold;
     }
+
+    /* Back button bottom-left style */
+    .back-gif {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      border-radius: 0;
+      z-index: 1000;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
@@ -109,31 +124,31 @@
 
   <!-- Satellite GIF button to scroll to card -->
   <a href="#card-section">
-    <img src="assets/gifs/satellite.gif" alt="Go to content" class="satellite-button">
+    <img src="assets/gifs/satellite.gif" alt="Go to content" class="satellite-button" />
   </a>
 
   <!-- Hot pink card section -->
   <div id="card-section" class="card-container">
     <div class="card-title">Fajardo River Watershed</div>
     <div class="card">
-      <img src="assets/images/fajardoriverwatershed.png" alt="Study area for NASA DEVELOP Fajardo River Watershed project.">
+      <img src="assets/images/fajardoriverwatershed.png" alt="Study area for NASA DEVELOP Fajardo River Watershed project." />
       <p>The Fajardo River watershed in northeastern Puerto Rico (69 km²) drains into sensitive coral reef, seagrass, and mangrove habitats. This study examines how land use changes from 2000 to 2025 have affected water quality, focusing on turbidity and chlorophyll-a in coastal and marine areas including Vieques and Culebra Islands.</p>
       <div class="iframe-wrapper">
-        <iframe src="https://docs.google.com/presentation/d/1gMdjLenH7f-FN9Neyo3LlRFtUbRbq29x/embed?start=false&loop=false&delayms=3000" 
-          allowfullscreen 
-          mozallowfullscreen 
+        <iframe src="https://docs.google.com/presentation/d/1gMdjLenH7f-FN9Neyo3LlRFtUbRbq29x/embed?start=false&loop=false&delayms=3000"
+          allowfullscreen
+          mozallowfullscreen
           webkitallowfullscreen>
         </iframe>
       </div>
     </div>
   </div>
 
+  <!-- Back button bottom-left -->
   <img
     src="assets/gifs/back.gif"
     alt="Back"
     class="back-gif"
     onclick="history.back()"
-    style="position: fixed; top: 20px; left: 20px; width: 60px; height: 60px; cursor: pointer; border-radius: 0; z-index: 1000;"
   />
 
   <!-- Contact Email -->
@@ -143,4 +158,3 @@
 
 </body>
 </html>
-
