@@ -3,92 +3,124 @@
 <head>
   <title>Projects</title>
   <style>
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background-image: url("assets/bg/space.gif");
-    background-attachment: fixed;
-    background-repeat: repeat;
-    background-color: black;
-    color: lime;
-    font-family: 'Comic Sans MS', sans-serif;
-    text-align: center;
-    padding: 50px;
-  }
-
-  h1 {
-    color: hotpink;
-    font-size: 48px;
-    text-shadow: 2px 2px cyan;
-    animation: blink 1s step-start infinite;
-    margin-bottom: 40px;
-  }
-
-  @keyframes blink {
-    50% {
-      opacity: 0;
+    html, body {
+      height: 100%;
+      margin: 0;
     }
-  }
 
-  table {
-    margin: 0 auto;
-    border-collapse: separate;
-    border-spacing: 40px 20px;
-    width: 80%;
-    max-width: 1000px;
-  }
-
-  td {
-    vertical-align: top;
-    width: 33.33%;
-  }
-
-  td a {
-    text-decoration: none;
-    color: lime;
-  }
-
-  td img {
-    width: 320px;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 0px; /* square corners */
-    border: 2px solid hotpink;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-
-  td img:hover {
-    transform: scale(1.05);
-    border-color: deeppink;
-  }
-
-  .project-text {
-    margin-top: 10px;
-    font-size: 18px;
-    color: hotpink;
-    font-weight: bold;
-    font-family: 'Comic Sans MS', sans-serif;
-  }
-
-  @media (max-width: 768px) {
-    table, tbody, tr, td {
-      display: block;
-      width: 100%;
-      margin: 0 auto;
+    body {
+      background-image: url("assets/bg/space.gif");
+      background-attachment: fixed;
+      background-repeat: repeat;
+      background-color: black;
+      color: lime;
+      font-family: 'Comic Sans MS', sans-serif;
+      text-align: center;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+      position: relative; /* for Back button positioning */
     }
-    td {
+
+    h1 {
+      color: hotpink;
+      font-size: 48px;
+      text-shadow: 2px 2px cyan;
+      animation: blink 1s step-start infinite;
       margin-bottom: 40px;
     }
-    td img {
-      width: 90vw;
-      height: 90vw;
-    }
-  }
-</style>
 
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: separate;
+      border-spacing: 40px 20px;
+      width: auto;
+      table-layout: fixed;
+    }
+
+    td {
+      vertical-align: top;
+      width: 320px;
+      text-align: center;
+    }
+
+    td a {
+      text-decoration: none;
+      color: lime;
+    }
+
+    td img {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 0px; /* square corners */
+      border: 2px solid hotpink;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    td img:hover {
+      transform: scale(1.05);
+      border-color: deeppink;
+    }
+
+    .project-text {
+      margin-top: 10px;
+      font-size: 18px;
+      color: hotpink;
+      font-weight: bold;
+      font-family: 'Comic Sans MS', sans-serif;
+    }
+
+    /* Back Button Styling */
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: hotpink;
+      color: black;
+      border: none;
+      padding: 12px 24px;
+      font-family: 'Comic Sans MS', sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 0px; /* square corners */
+      box-shadow: 0 0 8px deeppink;
+      transition: background-color 0.3s, color 0.3s;
+      z-index: 1000;
+    }
+
+    .back-button:hover {
+      background-color: deeppink;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      table, tbody, tr, td {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+      }
+      td {
+        margin-bottom: 40px;
+      }
+      td img {
+        width: 90vw;
+        height: 90vw;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -116,6 +148,15 @@
       </td>
     </tr>
   </table>
+
+  <img
+    src="assets/gifs/back.gif"
+    alt="Back"
+    class="back-gif"
+    onclick="history.back()"
+    style="position: fixed; top: 20px; left: 20px; width: 60px; height: 60px; cursor: pointer; border-radius: 0; z-index: 1000;"
+  />
+
 
 </body>
 </html>
