@@ -86,7 +86,46 @@
       cursor: pointer;
       width: 60px;
       height: auto;
+      transition: transform 0.2s;
     }
+
+    .satellite-button:hover {
+      transform: scale(1.1);
+    }
+
+    .sat-wrapper {
+        text-align: center;
+    }
+
+    .sat-label {
+        margin-top: 4px;
+        color: hotpink;
+        font-size: 14px;
+    }
+
+    .about-me {
+        position: relative;
+        flex: 1;
+        background-color: rgba(255, 105, 180, 0.2);
+        min-width: 400px;
+        padding: 20px 20px 220px 30px;  /* Extra bottom padding to make room for image */
+        border-radius: 0px; /* Pointed corners */
+        text-align: left;
+        margin-left: 0;
+    }
+
+    .profile-pic {
+  float: right;
+  width: 360px;
+  height: 180px;
+  border-radius: 0px;
+  border: 2px solid hotpink;
+  margin-left: 20px;  /* space between image and text */
+  margin-bottom: 20px; /* some space below */
+  position: static;  /* remove absolute */
+}
+
+
 
     .contact-email {
       margin-top: 100px;
@@ -101,30 +140,113 @@
       text-decoration: underline;
       font-weight: bold;
     }
+
+    /* --- Layout Section --- */
+    .container {
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+  gap: 10px; /* smaller gap between satellites and About Me */
+  justify-content: flex-start;
+}
+
+.satellite-buttons {
+  width: 120px;       /* fixed narrow width */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-top: 50px;
+}
+
+.about-me {
+  flex-grow: 1;       /* take remaining space */
+  min-width: 500px;   /* minimum width so it doesn’t shrink too small */
+  margin-left: 0;     /* no left margin pushing it right */
+  background-color: rgba(255, 105, 180, 0.2);
+  padding: 20px 20px 220px 30px;
+  border-radius: 0;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+    .about-me h2 {
+      color: hotpink;
+    }
+
+    .about-me table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .about-me td {
+      padding: 8px;
+      border-bottom: 1px solid hotpink;
+      color: lime;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .about-me, .icon-column {
+        max-width: 100%;
+        align-items: center;
+      }
+
+      .icon-column {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <h1>WELCOME</h1>
 
-  <!-- Satellite GIF button to scroll to card -->
-  <a href="#card-section">
-    <img src="assets/gifs/satellite.gif" alt="Go to content" class="satellite-button">
-  </a>
+  <!-- Two-Column Layout with icons on left -->
+  <div class="container">
+    <!-- Satellite Buttons Column (Now on Left) -->
+    <div class="icon-column">
+      <a href="rs_page.html">
+        <img src="assets/gifs/satellite.gif" alt="Go to RS Page" class="satellite-button">
+      </a>
+        <p class="sat-label">Projects</p>
+      <a href="rs_page.html">
+        <img src="assets/gifs/resume.gif" alt="Go to RS Page" class="satellite-button">
+      </a>
+        <p class="sat-label">Resume</p>
+      <a href="rs_page.html">
+        <img src="assets/gifs/earth.gif" alt="Go to RS Page" class="satellite-button">
+      </a>
+        <p class="sat-label">Mind Map</p>
+    </div>
 
-  <!-- Hot pink card section -->
-  <div id="card-section" class="card-container">
-    <div class="card-title">Fajardo River Watershed</div>
-    <div class="card">
-      <img src="assets/images/fajardoriverwatershed.png" alt="Study area for NASA DEVELOP Fajardo River Watershed project.">
-      <p>The Fajardo River watershed in northeastern Puerto Rico (69 km²) drains into sensitive coral reef, seagrass, and mangrove habitats. This study examines how land use changes from 2000 to 2025 have affected water quality, focusing on turbidity and chlorophyll-a in coastal and marine areas including Vieques and Culebra Islands.</p>
-      <div class="iframe-wrapper">
-        <iframe src="https://docs.google.com/presentation/d/1gMdjLenH7f-FN9Neyo3LlRFtUbRbq29x/embed?start=false&loop=false&delayms=3000" 
-          allowfullscreen 
-          mozallowfullscreen 
-          webkitallowfullscreen>
-        </iframe>
-      </div>
+    <!-- About Me Section -->
+    <div class="about-me">
+      <img src="assets/images/profile.jpeg" alt="Profile Picture" class="profile-pic">
+      <h2>About Me</h2>
+      <table>
+        <tr>
+          <td><strong>Name:</strong></td>
+          <td>Alex Moran</td>
+        </tr>
+        <tr>
+          <td><strong>Occupation:</strong></td>
+          <td>Data Scientist</td>
+        </tr>
+        <tr>
+          <td><strong>Interests:</strong></td>
+          <td>Remote Sensing, AI, GIFs</td>
+        </tr>
+      </table>
     </div>
   </div>
 
@@ -135,4 +257,3 @@
 
 </body>
 </html>
-
