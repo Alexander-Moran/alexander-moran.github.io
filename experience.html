@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <title>About Me</title>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
+      padding: 0;  /* NO padding here! */
       background-image: url("assets/bg/space.gif");
       background-attachment: fixed;
       background-repeat: repeat;
@@ -17,25 +18,55 @@
       color: lime;
       font-family: 'Comic Sans MS', sans-serif;
       text-align: center;
+      box-sizing: border-box;
+      user-select: none;
+      overflow-x: hidden; /* prevent horizontal scroll */
+    }
+
+    /* Banner across top */
+    .banner-image {
+      display: block;
+      width: 100vw;       /* full viewport width */
+      height: 100px;
+      object-fit: cover;
+      image-rendering: pixelated;
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      user-select: none;
+      position: relative; /* default */
+      left: 0;
+      top: 0;
+    }
+
+    /* Container to hold all content below banner with padding */
+    .content-container {
+      padding: 40px 10px 80px;
+      max-width: 600px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 40px 10px;
+      gap: 40px;
       box-sizing: border-box;
+    }
+
+    /* Push content below banner */
+    body > .content-container {
+      margin-top: 50px; /* space below banner */
     }
 
     h1 {
       color: hotpink;
+      font-size: 48px;
       text-shadow: 2px 2px cyan;
+      animation: blink 1s step-start infinite;
       margin-bottom: 40px;
     }
 
-    .box-container {
-      width: 90%;
-      max-width: 600px;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
     }
 
     .pink-box {
@@ -57,33 +88,67 @@
       margin-top: 20px;
       color: lime;
     }
+
+    /* Back button bottom-left (pixel style) */
+    .back-gif {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      border-radius: 0;
+      z-index: 1000;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 30px 10px 80px;
+        max-width: 95%;
+      }
+      h1 {
+        font-size: 36px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Experience</h1>
 
-  <div class="box-container">
+  <!-- Banner image exactly like projects page -->
+  <img src="assets/images/banner.png" alt="Banner" class="banner-image" />
+
+  <!-- Content container with padding -->
+  <div class="content-container">
+    <h1>Experience</h1>
+
     <div class="pink-box">
       <p>
         Georgia Institute of Technology<br>
-        Master of Computer Science<br>
+        Master of Science in Computer Science<br>
         Machine Learning Specialization
       </p>
 
       <p>
         University of California, Davis<br>
-        Bachelor of Arts - Political Science, International Relations<br>
-        Minor - Human Rights<br>
-        Machine Learning Specialization
+        Bachelor of Arts in Political Science, International Relations<br>
+        Minor in Human Rights
       </p>
-
     </div>
-
 
     <div class="pink-box">
-      <p>This is a description or caption for the second media box.</p>
+      <p>Job</p>
     </div>
   </div>
+
+  <!-- Back button bottom-left exactly like projects page -->
+  <img
+    src="assets/gifs/back.gif"
+    alt="Back"
+    class="back-gif"
+    onclick="history.back()"
+  />
+
 </body>
 </html>
-

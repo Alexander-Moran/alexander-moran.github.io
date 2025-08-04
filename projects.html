@@ -3,12 +3,13 @@
 <head>
   <title>Projects</title>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
+      padding: 0;
       background-image: url("assets/bg/space.gif");
       background-attachment: fixed;
       background-repeat: repeat;
@@ -16,14 +17,26 @@
       color: lime;
       font-family: 'Comic Sans MS', sans-serif;
       text-align: center;
-      padding: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
       box-sizing: border-box;
-      position: relative; /* for Back button positioning */
+      user-select: none;
+    }
+
+    /* Banner across top */
+    .banner-image {
+      display: block;
+      width: 100vw;
+      height: 100px;
+      object-fit: cover;
+      image-rendering: pixelated;
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      user-select: none;
+    }
+
+    /* Push content below banner */
+    body > :not(.banner-image) {
+      margin-top: 50px;
     }
 
     h1 {
@@ -40,36 +53,50 @@
       }
     }
 
-    table {
-      margin: 0 auto;
-      border-collapse: separate;
-      border-spacing: 40px 20px;
-      width: auto;
-      table-layout: fixed;
+    /* Container with 2 columns: left sidebar + main projects */
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      max-width: 1000px;
+      margin: 0 auto 100px auto;
+      gap: 20px;
+      padding: 0 20px;
     }
 
-    td {
-      vertical-align: top;
-      width: 320px;
+    /* Left sidebar: add satellite icons or nav here (can be empty or add something) */
+    .sidebar {
+      width: 120px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding-top: 50px;
+    }
+
+    /* Project grid area */
+    .projects-grid {
+      flex-grow: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 40px 20px;
+      justify-items: center;
       text-align: center;
     }
 
-    td a {
-      text-decoration: none;
-      color: lime;
-    }
-
-    td img {
+    /* Individual project tile */
+    .project-tile img {
       width: 320px;
       height: 320px;
       object-fit: cover;
-      border-radius: 0px; /* square corners */
+      border-radius: 0;
       border: 2px solid hotpink;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
-    td img:hover {
+    .project-tile img:hover {
       transform: scale(1.05);
       border-color: deeppink;
     }
@@ -82,7 +109,20 @@
       font-family: 'Comic Sans MS', sans-serif;
     }
 
-    /* Back Button Styling */
+    /* Back button bottom-left (pixel style) */
+    .back-gif {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      border-radius: 0;
+      z-index: 1000;
+      user-select: none;
+    }
+
+    /* Back button bottom-right (text version, optional if needed) */
     .back-button {
       position: fixed;
       bottom: 20px;
@@ -95,7 +135,7 @@
       font-weight: bold;
       font-size: 16px;
       cursor: pointer;
-      border-radius: 0px; /* square corners */
+      border-radius: 0;
       box-shadow: 0 0 8px deeppink;
       transition: background-color 0.3s, color 0.3s;
       z-index: 1000;
@@ -106,16 +146,34 @@
       color: white;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
-      table, tbody, tr, td {
-        display: block;
+      body > :not(.banner-image) {
+        margin-top: 30px;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+        max-width: 90vw;
+        margin-bottom: 60px;
+      }
+
+      .sidebar {
+        flex-direction: row;
         width: 100%;
-        margin: 0 auto;
+        justify-content: center;
+        gap: 30px;
+        padding-top: 20px;
+        margin-bottom: 30px;
       }
-      td {
-        margin-bottom: 40px;
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
-      td img {
+
+      .project-tile img {
         width: 90vw;
         height: 90vw;
       }
@@ -124,40 +182,45 @@
 </head>
 <body>
 
+  <!-- Banner image like your welcome page -->
+  <img src="assets/images/banner.png" alt="Banner" class="banner-image">
+
   <h1>PROJECTS</h1>
 
-  <table>
-    <tr>
-      <td>
+  <div class="container">
+    <!-- Sidebar for satellite buttons if you want to add, else can leave empty -->
+
+
+    <!-- Projects grid -->
+    <div class="projects-grid">
+      <div class="project-tile">
         <a href="fajardoriver.html">
           <img src="assets/images/fajardoriverwatershed.png" alt="Project 1">
           <div class="project-text">Fajardo River Water Resources</div>
         </a>
-      </td>
-      <td>
+      </div>
+      <div class="project-tile">
         <a href="fajardoriver.html">
           <img src="assets/images/montanawildfires.jpeg" alt="Project 2">
           <div class="project-text">Montana Wildland Fires</div>
         </a>
-      </td>
-      <td>
+      </div>
+      <div class="project-tile">
         <a href="fajardoriver.html">
           <img src="assets/images/fajardoriverwatershed.png" alt="Project 3">
           <div class="project-text">Pending</div>
         </a>
-      </td>
-    </tr>
-  </table>
+      </div>
+    </div>
+  </div>
 
+  <!-- Back button bottom-left -->
   <img
     src="assets/gifs/back.gif"
     alt="Back"
     class="back-gif"
     onclick="history.back()"
-    style="position: fixed; bottom: 20px; left: 20px; width: 60px; height: 60px; cursor: pointer; border-radius: 0; z-index: 1000;"
-
   />
-
 
 </body>
 </html>
